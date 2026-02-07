@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
@@ -9,9 +9,9 @@ const HeroSection = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.5 });
+      const tl = gsap.timeline({ delay: 0.2 });
 
       // Badge animation
       tl.fromTo(badgeRef.current,
@@ -24,24 +24,32 @@ const HeroSection = () => {
       if (headlineRef.current) {
         const chars = headlineRef.current.querySelectorAll('.char');
         tl.fromTo(chars,
-          { y: 80, opacity: 0, rotateX: -90 },
-          { y: 0, opacity: 1, rotateX: 0, duration: 0.8, stagger: 0.02, ease: 'power3.out' },
-          0.2
+          { y: 60, opacity: 0, rotateX: -90 },
+          {
+            y: 0,
+            opacity: 1,
+            rotateX: 0,
+            duration: 0.8,
+            stagger: 0.02,
+            ease: 'power4.out',
+            clearProps: 'all'
+          },
+          0.1
         );
       }
 
       // Subheadline
       tl.fromTo(subheadRef.current,
-        { y: 30, opacity: 0 },
+        { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
-        0.8
+        0.4
       );
 
       // CTAs
       tl.fromTo(ctaRef.current,
-        { y: 30, opacity: 0 },
+        { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-        1
+        0.6
       );
     }, sectionRef);
 
