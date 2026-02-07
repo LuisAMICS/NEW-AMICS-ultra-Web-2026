@@ -217,7 +217,6 @@
 
 /* Animations Helper */
 .char {
-  opacity: 0;
   display: inline-block;
   will-change: transform, opacity;
 }

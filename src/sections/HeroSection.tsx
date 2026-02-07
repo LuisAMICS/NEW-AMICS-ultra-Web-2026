@@ -11,45 +11,49 @@ const HeroSection = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.2 });
+      // Set initial states via GSAP instead of CSS to avoid permanent invisibility
+      gsap.set([badgeRef.current, subheadRef.current, ctaRef.current], { opacity: 0, y: 20 });
+
+      const headline = headlineRef.current;
+      if (headline) {
+        const chars = headline.querySelectorAll('.char');
+        gsap.set(chars, { opacity: 0, y: 40, rotateX: -90 });
+      }
+
+      const tl = gsap.timeline({ delay: 0.1 });
 
       // Badge animation
-      tl.fromTo(badgeRef.current,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-        0
+      tl.to(badgeRef.current,
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }
       );
 
-      // Headline animation - character by character
-      if (headlineRef.current) {
-        const chars = headlineRef.current.querySelectorAll('.char');
-        tl.fromTo(chars,
-          { y: 60, opacity: 0, rotateX: -90 },
+      // Headline animation
+      if (headline) {
+        const chars = headline.querySelectorAll('.char');
+        tl.to(chars,
           {
             y: 0,
             opacity: 1,
             rotateX: 0,
             duration: 0.8,
-            stagger: 0.02,
+            stagger: 0.015,
             ease: 'power4.out',
             clearProps: 'all'
           },
-          0.1
+          "-=0.4"
         );
       }
 
       // Subheadline
-      tl.fromTo(subheadRef.current,
-        { y: 20, opacity: 0 },
+      tl.to(subheadRef.current,
         { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
-        0.4
+        "-=0.6"
       );
 
       // CTAs
-      tl.fromTo(ctaRef.current,
-        { y: 20, opacity: 0 },
+      tl.to(ctaRef.current,
         { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-        0.6
+        "-=0.6"
       );
     }, sectionRef);
 
