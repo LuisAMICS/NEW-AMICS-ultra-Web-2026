@@ -40,16 +40,20 @@ const DataStreams = () => {
       opacity: Math.random() * 0.3 + 0.1,
     }));
 
-    let frameCount = 0;
+    const fps = 30;
+    const interval = 1000 / fps;
+    let lastTime = 0;
 
-    const animate = () => {
-      frameCount++;
-      
-      // Only update every 3rd frame for performance
-      if (frameCount % 3 !== 0) {
-        animationRef.current = requestAnimationFrame(animate);
-        return;
-      }
+    const animate = (currentTime: number) => {
+      animationRef.current = requestAnimationFrame(animate);
+
+      // Visibility check
+      if (document.hidden) return;
+
+      // Throttle to 30fps
+      const delta = currentTime - lastTime;
+      if (delta < interval) return;
+      lastTime = currentTime - (delta % interval);
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -74,11 +78,11 @@ const DataStreams = () => {
         ctx.fillStyle = `rgba(0, 240, 255, ${particle.opacity})`;
         ctx.fillText(particle.char, particle.x, particle.y);
 
-        // Draw trail
-        for (let i = 1; i <= 5; i++) {
+        // Draw trail (Reduced trail length for performance)
+        for (let i = 1; i <= 3; i++) {
           const trailY = particle.y - i * 15;
           if (trailY > 0) {
-            ctx.fillStyle = `rgba(0, 240, 255, ${particle.opacity * (1 - i * 0.15)})`;
+            ctx.fillStyle = `rgba(0, 240, 255, ${particle.opacity * (1 - i * 0.25)})`;
             ctx.fillText(
               chars[Math.floor(Math.random() * chars.length)],
               particle.x,
@@ -87,11 +91,9 @@ const DataStreams = () => {
           }
         }
       });
-
-      animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);

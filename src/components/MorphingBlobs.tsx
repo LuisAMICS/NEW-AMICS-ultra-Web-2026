@@ -9,33 +9,46 @@ const MorphingBlobs = () => {
 
     // Animate blobs with GSAP-like smooth motion
     const blobs = container.querySelectorAll('.blob');
-    
+
     blobs.forEach((blob, i) => {
       const element = blob as HTMLElement;
       let angle = (i * Math.PI * 2) / blobs.length;
       let radius = 150 + i * 50;
       let speed = 0.002 + i * 0.001;
-      
-      const animate = () => {
+
+      const fps = 30;
+      const interval = 1000 / fps;
+      let lastTime = 0;
+      let animationId: number;
+
+      const animate = (currentTime: number) => {
+        animationId = requestAnimationFrame(animate);
+
+        if (document.hidden) return;
+
+        const delta = currentTime - lastTime;
+        if (delta < interval) return;
+        lastTime = currentTime - (delta % interval);
+
         angle += speed;
         const x = Math.cos(angle) * radius;
         const y = Math.sin(angle * 1.5) * radius * 0.6;
-        
-        element.style.transform = `translate(${x}px, ${y}px)`;
-        requestAnimationFrame(animate);
+
+        element.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       };
-      
-      animate();
+
+      animationId = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(animationId);
     });
   }, []);
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
     >
       {/* Blob 1 - Blue */}
-      <div 
+      <div
         className="blob morphing-blob absolute w-[600px] h-[600px] opacity-20"
         style={{
           background: 'radial-gradient(circle, #2E6EFF 0%, transparent 70%)',
@@ -44,9 +57,9 @@ const MorphingBlobs = () => {
           left: '10%',
         }}
       />
-      
+
       {/* Blob 2 - Cyan */}
-      <div 
+      <div
         className="blob morphing-blob absolute w-[500px] h-[500px] opacity-15"
         style={{
           background: 'radial-gradient(circle, #00F0FF 0%, transparent 70%)',
@@ -56,9 +69,9 @@ const MorphingBlobs = () => {
           animationDelay: '-2s',
         }}
       />
-      
+
       {/* Blob 3 - Purple */}
-      <div 
+      <div
         className="blob morphing-blob absolute w-[400px] h-[400px] opacity-15"
         style={{
           background: 'radial-gradient(circle, #B829DD 0%, transparent 70%)',
@@ -68,9 +81,9 @@ const MorphingBlobs = () => {
           animationDelay: '-4s',
         }}
       />
-      
+
       {/* Blob 4 - Pink accent */}
-      <div 
+      <div
         className="blob morphing-blob absolute w-[300px] h-[300px] opacity-10"
         style={{
           background: 'radial-gradient(circle, #FF2E8C 0%, transparent 70%)',

@@ -16,7 +16,6 @@ const NeuralParticles = () => {
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef({ x: 0, y: 0, active: false });
   const animationRef = useRef<number | null>(null);
-  const frameCountRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -36,7 +35,7 @@ const NeuralParticles = () => {
     // Initialize particles - neural network style
     const particleCount = Math.min(100, Math.floor(window.innerWidth / 15));
     const colors = ['#2E6EFF', '#00F0FF', '#B829DD', '#FF2E8C'];
-    
+
     particlesRef.current = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -59,14 +58,20 @@ const NeuralParticles = () => {
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('mouseleave', handleMouseLeave);
 
-    const animate = () => {
-      frameCountRef.current++;
-      
-      // Skip frames for performance (render every 2nd frame)
-      if (frameCountRef.current % 2 !== 0) {
-        animationRef.current = requestAnimationFrame(animate);
-        return;
-      }
+    const fps = 30;
+    const interval = 1000 / fps;
+    let lastTime = 0;
+
+    const animate = (currentTime: number) => {
+      animationRef.current = requestAnimationFrame(animate);
+
+      // Visibility check
+      if (document.hidden) return;
+
+      // Throttle to 30fps
+      const delta = currentTime - lastTime;
+      if (delta < interval) return;
+      lastTime = currentTime - (delta % interval);
 
       ctx.fillStyle = 'rgba(2, 2, 4, 0.15)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -87,9 +92,10 @@ const NeuralParticles = () => {
         if (mouse.active) {
           const dx = mouse.x - particle.x;
           const dy = mouse.y - particle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 200) {
+          const distanceSq = dx * dx + dy * dy;
+
+          if (distanceSq < 40000) { // 200 * 200
+            const distance = Math.sqrt(distanceSq);
             const force = (200 - distance) / 200;
             particle.vx += (dx / distance) * force * 0.015;
             particle.vy += (dy / distance) * force * 0.015;
@@ -108,22 +114,29 @@ const NeuralParticles = () => {
 
         // Draw particle with glow
         const radius = particle.radius * pulseScale;
-        
-        // Outer glow
-        const gradient = ctx.createRadialGradient(
-          particle.x, particle.y, 0,
-          particle.x, particle.y, radius * 4
-        );
-        gradient.addColorStop(0, particle.color + '60');
-        gradient.addColorStop(0.5, particle.color + '20');
-        gradient.addColorStop(1, 'transparent');
-        
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, radius * 4, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
 
-        // Core
+        // Only draw connections for every 2nd particle to save CPU
+        if (i % 2 === 0) {
+          particles.slice(i + 1, i + 15).forEach((other) => { // Limited neighbor check
+            const dx = particle.x - other.x;
+            const dy = particle.y - other.y;
+            const distSq = dx * dx + dy * dy;
+
+            if (distSq < 22500) { // 150 * 150
+              const dist = Math.sqrt(distSq);
+              const opacity = (1 - dist / 150) * 0.3;
+
+              ctx.beginPath();
+              ctx.moveTo(particle.x, particle.y);
+              ctx.lineTo(other.x, other.y);
+              ctx.strokeStyle = `rgba(46, 110, 255, ${opacity})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          });
+        }
+
+        // Draw Core (Skip radial gradient for better performance)
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, radius, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
@@ -131,38 +144,14 @@ const NeuralParticles = () => {
         ctx.fill();
         ctx.globalAlpha = 1;
 
-        // Draw neural connections
-        particles.slice(i + 1).forEach((other) => {
-          const dx = particle.x - other.x;
-          const dy = particle.y - other.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 150) {
-            const opacity = (1 - dist / 150) * 0.3;
-            
-            // Gradient line
-            const lineGrad = ctx.createLinearGradient(
-              particle.x, particle.y, other.x, other.y
-            );
-            lineGrad.addColorStop(0, particle.color + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
-            lineGrad.addColorStop(1, other.color + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
-            
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = lineGrad;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-
         // Mouse connections
         if (mouse.active) {
           const dx = mouse.x - particle.x;
           const dy = mouse.y - particle.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          
-          if (dist < 250) {
+          const distSq = dx * dx + dy * dy;
+
+          if (distSq < 62500) { // 250 * 250
+            const dist = Math.sqrt(distSq);
             const opacity = (1 - dist / 250) * 0.4;
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
@@ -173,11 +162,9 @@ const NeuralParticles = () => {
           }
         }
       });
-
-      animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
