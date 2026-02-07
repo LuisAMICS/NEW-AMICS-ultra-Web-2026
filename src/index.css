@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 45% 2%;
+    --foreground: 230 60% 97%;
+    --neon-blue: #2E6EFF;
+    --neon-cyan: #00F0FF;
+    --neon-purple: #B829DD;
+    --neon-pink: #FF2E8C;
+    --deep-black: #020204;
+    --space-gray: #0A0A0F;
+    --star-white: #F0F4FF;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#020204] text-[#F0F4FF] antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  ::selection {
+    background: rgba(46, 110, 255, 0.4);
+    color: #F0F4FF;
+  }
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Sora', sans-serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020204;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2E6EFF, #00F0FF);
+  border-radius: 3px;
+}
+
+/* Grain overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Scan lines */
+.scan-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.03;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 240, 255, 0.03) 2px,
+    rgba(0, 240, 255, 0.03) 4px
+  );
+}
+
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2E6EFF;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s, height 0.15s, border-color 0.15s;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+  width: 50px;
+  height: 50px;
+  border-color: #00F0FF;
+  background: rgba(0, 240, 255, 0.1);
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #2E6EFF;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* Gradient overlays */
+.gradient-overlay-left {
+  background: linear-gradient(90deg, 
+    rgba(2, 2, 4, 0.95) 0%, 
+    rgba(2, 2, 4, 0.7) 40%, 
+    rgba(2, 2, 4, 0.3) 70%,
+    transparent 100%
+  );
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(244, 246, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(46, 110, 255, 0.15);
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(46, 110, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 110, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Glow text */
+.glow-text-cyan {
+  text-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.5),
+    0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+/* Morphing blob animation */
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+  75% {
+    border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%;
+  }
+}
+
+.morphing-blob {
+  animation: morph 8s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .custom-cursor, .cursor-trail {
+    display: none !important;
+  }
+}
+
+/* Mobile - restore default cursor */
+@media (pointer: coarse) {
+  .custom-cursor, .cursor-trail {
+    display: none !important;
+  }
+}
