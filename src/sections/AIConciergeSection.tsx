@@ -100,7 +100,7 @@ const AIConciergeSection = ({ className = '' }: AIConciergeSectionProps) => {
         style={{ opacity: 0.2 }}
       >
         <img
-          src="/ai_concierge_interface.jpg"
+          src="ai_concierge_interface.jpg"
           alt="AI Concierge Interface"
           className="w-full h-full object-cover"
         />

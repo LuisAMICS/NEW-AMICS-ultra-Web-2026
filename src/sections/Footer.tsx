@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
           <div className="flex items-center">
-            <img src="/amics-logo.png" alt="AMICS" className="h-10 w-auto object-contain" />
+            <img src="amics-logo.png" alt="AMICS" className="h-10 w-auto object-contain" />
           </div>
 
           {/* Links */}

@@ -106,7 +106,7 @@ const AIPhotoSection = ({ className = '' }: AIPhotoSectionProps) => {
         style={{ opacity: 0.2 }}
       >
         <img
-          src="/ai_photo_camera_hologram.jpg"
+          src="ai_photo_camera_hologram.jpg"
           alt="AI Photo Studio"
           className="w-full h-full object-cover"
         />

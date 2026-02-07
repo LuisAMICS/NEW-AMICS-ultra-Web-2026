@@ -89,7 +89,7 @@ const Navigation = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
-              <img src="/amics-logo.png" alt="AMICS" className="h-8 md:h-10 w-auto object-contain" />
+              <img src="amics-logo.png" alt="AMICS" className="h-8 md:h-10 w-auto object-contain" />
             </a>
           </div>
 

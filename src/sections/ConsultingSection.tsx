@@ -106,7 +106,7 @@ const ConsultingSection = ({ className = '' }: ConsultingSectionProps) => {
         style={{ opacity: 0.2 }}
       >
         <img
-          src="/consulting_analyst_desk.jpg"
+          src="consulting_analyst_desk.jpg"
           alt="Strategy Consultant"
           className="w-full h-full object-cover"
         />

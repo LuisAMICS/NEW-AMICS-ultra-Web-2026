@@ -105,7 +105,7 @@ const ProgrammaticSection = ({ className = '' }: ProgrammaticSectionProps) => {
         style={{ opacity: 0.2 }}
       >
         <img
-          src="/programmatic_data_wall.jpg"
+          src="programmatic_data_wall.jpg"
           alt="Programmatic Data Wall"
           className="w-full h-full object-cover"
         />

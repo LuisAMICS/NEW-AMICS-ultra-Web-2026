@@ -56,7 +56,7 @@ const ContactSection = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-[#2E6EFF] to-[#00F0FF] rounded-full blur-[20px] opacity-40 animate-pulse" />
           <div className="relative w-full h-full rounded-full border-4 border-[#2E6EFF]/20 overflow-hidden">
             <img
-              src="/danny.jpg"
+              src="danny.jpg"
               alt="Daneury Silverio"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
             />

@@ -180,7 +180,7 @@ const EcosystemSection = () => {
 
           {/* Center Logo */}
           <div className="center-logo absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-auto flex items-center justify-center z-10 drop-shadow-[0_0_30px_rgba(46,110,255,0.6)]">
-            <img src="/amics-logo.png" alt="AMICS" className="w-full h-auto object-contain" />
+            <img src="amics-logo.png" alt="AMICS" className="w-full h-auto object-contain" />
           </div>
 
           {/* Flow arrows */}
