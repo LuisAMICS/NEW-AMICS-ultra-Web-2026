@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://amicsconsultinggroup.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/growth</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/growth"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/growth"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/growth"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/websites</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/websites"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/websites"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/websites"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/ai-automation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/ai-automation"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/ai-automation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/ai-automation"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/studio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/studio"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/studio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/studio"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/firm</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/firm"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/firm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/firm"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/faq"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/teardown</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/teardown"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/teardown"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/teardown"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/contact"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es/growth</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/growth"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/growth"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/growth"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es/websites</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/websites"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/websites"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/websites"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es/ai-automation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/ai-automation"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/ai-automation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/ai-automation"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es/studio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/studio"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/studio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/studio"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es/firm</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/firm"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/firm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/firm"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/faq"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es/teardown</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/teardown"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/teardown"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/teardown"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://amicsconsultinggroup.com/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amicsconsultinggroup.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amicsconsultinggroup.com/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amicsconsultinggroup.com/contact"/>
+    <priority>0.8</priority>
+  </url>
+</urlset>
