@@ -4,10 +4,10 @@
 
 ## What Amics does
 
-- **Growth Marketing** (/growth): Growth Audits ($1,500 single-channel in 7 business days, $2,500 full-funnel in 10; 100% of the fee is credited toward the first retainer month). Paid media management across Meta, Google, TikTok, CTV/OTT and programmatic. Three retainer levels: Launch (one channel), Scale (multi-channel + retention with Klaviyo email/SMS and CRO), Growth Partner (full-funnel ownership, capped at 3 clients, by application).
-- **Websites** (/websites): Websites from $5,500, landing pages from $2,500, Shopify e-commerce builds from $8,500, redesigns from $7,500, care plans from $199/mo.
-- **AI Automation** (/ai-automation): 24/7 AI Receptionist from $297/mo (bilingual EN/ES Pro from $497/mo), AI chatbots from $250/mo, workflow automation from $2,000, AI Ops Suite $997/mo.
-- **Creative Studio** (/studio): AI-powered production — product photoshoots ($1,200, 20 images, 72-hour turnaround), brand/lifestyle shoots ($2,500), ad creative packs ($1,500; with video $3,000), broadcast-quality :30 CTV commercials ($3,500), brand identity kits ($2,500).
+- **Growth Marketing** (/growth/): Growth Audits ($1,500 single-channel in 7 business days, $2,500 full-funnel in 10; 100% of the fee is credited toward the first retainer month). Paid media management across Meta, Google, TikTok, CTV/OTT and programmatic. Three retainer levels: Launch (one channel), Scale (multi-channel + retention with Klaviyo email/SMS and CRO), Growth Partner (full-funnel ownership, capped at 3 clients, by application).
+- **Websites** (/websites/): Websites from $5,500, landing pages from $2,500, Shopify e-commerce builds from $8,500, redesigns from $7,500, care plans from $199/mo.
+- **AI Automation** (/ai-automation/): 24/7 AI Receptionist from $297/mo (bilingual EN/ES Pro from $497/mo), AI chatbots from $250/mo, workflow automation from $2,000, AI Ops Suite $997/mo.
+- **Creative Studio** (/studio/): AI-powered production — product photoshoots ($1,200, 20 images, 72-hour turnaround), brand/lifestyle shoots ($2,500), ad creative packs ($1,500; with video $3,000), broadcast-quality :30 CTV commercials ($3,500), brand identity kits ($2,500).
 
 ## Key facts
 
@@ -16,16 +16,22 @@
 - Every engagement starts with the Growth Audit; audits are delivered in 7–10 business days and credited toward the first month.
 - Launch standard: live within 14 days of signature.
 - Response time: 1 business day. Contact: danny@amicsconsultinggroup.com
-- Site available in English (/) and Spanish (/es).
+- Site available in English (/) and Spanish (/es/). Canonical URLs end with a trailing slash.
 
 ## Pages
 
 - [Home](/) — overview of the growth machine
-- [Growth](/growth) — audits, paid media retainers, CTV/programmatic
-- [Websites](/websites) — landing pages, business sites, Shopify builds, redesigns
-- [AI Automation](/ai-automation) — AI receptionist, chatbots, workflow automation
-- [Creative Studio](/studio) — AI production services and pricing menu
-- [The Firm](/firm) — the three operators and house rules
-- [FAQ](/faq) — the twelve objections, answered with receipts
-- [Free Teardown](/teardown) — free recorded teardown of your site and ads: the three biggest leaks and the fix order, no charge
-- [Contact](/contact) — intake form and direct email
+- [Growth](/growth/) — audits, paid media retainers, CTV/programmatic
+- [Websites](/websites/) — landing pages, business sites, Shopify builds, redesigns
+- [AI Automation](/ai-automation/) — AI receptionist, chatbots, workflow automation
+- [Creative Studio](/studio/) — AI production services and pricing menu
+- [The Firm](/firm/) — the three operators and house rules
+- [FAQ](/faq/) — the twelve objections, answered with receipts (FAQPage structured data)
+- [Free Teardown](/teardown/) — free recorded teardown of your site and ads: the three biggest leaks and the fix order, no charge
+- [Contact](/contact/) — intake form and direct email
+- [Privacy & Cookies](/privacy/) — data handling and cookie ledger
+
+## Optional
+
+- [Spanish home](/es/) — every page has a Spanish twin under /es/
+- [Sitemap](/sitemap.xml) — all 20 URLs with hreflang alternates
