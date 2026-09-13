@@ -61,6 +61,12 @@ Cuentas demo (también accesibles con un botón en `/login`):
 
 Ver [`.env.example`](.env.example).
 
+### Despliegue actual
+
+El proyecto de Vercel **kabina** (equipo *Luis Too Easy*) está enlazado a este repositorio con `kabina/` como
+*Root Directory*. Cada push a una rama genera un despliegue de vista previa; los pushes a `main` publican en
+producción. Sin `DATABASE_URL` el despliegue arranca en modo demo con datos de ejemplo.
+
 ## Estructura
 
 ```
