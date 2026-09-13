@@ -4,7 +4,7 @@ import { mkdirSync } from "node:fs";
 const [outDir = "screens", base = "http://localhost:3000"] = process.argv.slice(2);
 mkdirSync(outDir, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || "/opt/pw-browsers/chromium" });
-const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, locale: "es-ES", isMobile: true, hasTouch: true });
+const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: Number(process.env.SCALE || 2), locale: "es-ES", isMobile: true, hasTouch: true });
 const page = await ctx.newPage();
 const shot = async (name, full = false) => { await page.waitForTimeout(600); await page.screenshot({ path: `${outDir}/${name}.png`, fullPage: full }); console.log("✓", name); };
 
