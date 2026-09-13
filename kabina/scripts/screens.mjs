@@ -1,0 +1,31 @@
+// Captures mobile screenshots of the main flows (uses demo accounts). Usage: node scripts/screens.mjs <outDir> [baseUrl]
+import { chromium } from "@playwright/test";
+import { mkdirSync } from "node:fs";
+const [outDir = "screens", base = "http://localhost:3000"] = process.argv.slice(2);
+mkdirSync(outDir, { recursive: true });
+const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || "/opt/pw-browsers/chromium" });
+const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, locale: "es-ES", isMobile: true, hasTouch: true });
+const page = await ctx.newPage();
+const shot = async (name, full = false) => { await page.waitForTimeout(600); await page.screenshot({ path: `${outDir}/${name}.png`, fullPage: full }); console.log("✓", name); };
+
+await page.goto(`${base}/`, { waitUntil: "networkidle" }); await shot("01-home");
+await page.goto(`${base}/studios?q=Madrid`, { waitUntil: "networkidle" }); await shot("02-search");
+await page.goto(`${base}/login`, { waitUntil: "networkidle" }); await shot("03-login");
+await page.getByRole("button", { name: /artista/i }).click(); await page.waitForURL("**/account/bookings"); await shot("04-account-bookings");
+await page.goto(`${base}/studios?q=Madrid&type=recording`, { waitUntil: "networkidle" });
+await page.locator("article a").filter({ hasText: /SSL/ }).first().click(); await page.waitForURL("**/studios/**"); await page.waitForLoadState("networkidle");
+await shot("05-listing-top");
+const widget = page.locator("aside");
+await widget.scrollIntoViewIfNeeded(); await page.waitForTimeout(300); await shot("06-listing-widget");
+const slots = page.locator("aside button:not([disabled])").filter({ hasText: /^\d{2}:00$/ });
+await slots.nth(-4).click(); await slots.nth(-1).click(); await page.waitForTimeout(300); await shot("07-listing-selected");
+await page.getByRole("link", { name: /^(Reservar|Solicitar reserva)$/ }).click(); await page.waitForURL("**/book?**"); await page.waitForLoadState("networkidle"); await shot("08-checkout", true);
+await page.locator("textarea#notes").fill("Voces para dos temas del EP. Vamos dos personas.");
+await page.getByRole("button", { name: /Pagar|Enviar solicitud/ }).click(); await page.waitForURL("**/bookings/**"); await page.waitForLoadState("networkidle"); await shot("09-confirmation", true);
+await page.goto(`${base}/account/messages`, { waitUntil: "networkidle" }); await page.locator("a[href^='/account/messages/']").first().click(); await page.waitForLoadState("networkidle"); await shot("10-messages");
+await page.goto(`${base}/logout`).catch(() => {});
+await ctx.clearCookies();
+await page.goto(`${base}/login`, { waitUntil: "networkidle" }); await page.getByRole("button", { name: /estudio/i }).click(); await page.waitForURL("**/host"); await page.waitForLoadState("networkidle"); await shot("11-host-dashboard", true);
+await page.goto(`${base}/host/calendar`, { waitUntil: "networkidle" }); await shot("12-host-calendar", true);
+await page.goto(`${base}/host/listings/new`, { waitUntil: "networkidle" }); await shot("13-host-new-listing");
+await browser.close();
