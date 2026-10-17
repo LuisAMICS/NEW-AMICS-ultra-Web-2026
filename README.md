@@ -10,3 +10,9 @@ el código fuente vive en `~/Sites/amics-web` (local de Luis).
 - Dominio: configurado en Settings → Pages (`amicsconsultinggroup.com`). **No añadir
   ficheros CNAME a la raíz** — con build por workflow dispararía el builder legacy.
 - La web anterior (Vite app buildada en CI) queda en el historial de git, pre-2026-08-03.
+
+## Kabina (SaaS de reserva de estudios de grabación)
+
+La carpeta [`kabina/`](kabina/) contiene un proyecto independiente: **Kabina**, marketplace tipo Airbnb
+para reservar estudios de grabación por horas (Next.js 16 + Drizzle + Stripe). No forma parte de la web
+publicada en GitHub Pages (el workflow solo sube `site/`). Documentación en `kabina/README.md` y `kabina/docs/`.
