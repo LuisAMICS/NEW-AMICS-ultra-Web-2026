@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getT } from "@/lib/i18n";
 import { getCurrentUser } from "@/lib/auth";
-import { isDemoMode } from "@/db";
+import { hasDemoAccounts } from "@/db";
 import { AuthShell } from "@/components/auth/auth-shell";
 import { DemoButtons, RegisterForm } from "@/components/auth/auth-forms";
 
@@ -19,7 +19,7 @@ export default async function RegisterPage(props: PageProps<"/register">) {
   return (
     <AuthShell title={t.auth.registerTitle} subtitle={t.auth.registerSubtitle}>
       <RegisterForm next={next} host={sp.host === "1"} />
-      <DemoButtons next={next} demo={isDemoMode} />
+      <DemoButtons next={next} demo={hasDemoAccounts} />
     </AuthShell>
   );
 }

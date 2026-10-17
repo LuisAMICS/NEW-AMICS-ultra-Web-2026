@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getT } from "@/lib/i18n";
 import { getCurrentUser } from "@/lib/auth";
-import { isDemoMode } from "@/db";
+import { hasDemoAccounts } from "@/db";
 import { AuthShell } from "@/components/auth/auth-shell";
 import { DemoButtons, LoginForm } from "@/components/auth/auth-forms";
 
@@ -18,7 +18,7 @@ export default async function LoginPage(props: PageProps<"/login">) {
   if (user) redirect(next ?? (user.isHost ? "/host" : "/account/bookings"));
   return (
     <AuthShell title={t.auth.loginTitle} subtitle={t.auth.loginSubtitle}>
-      <DemoButtons next={next} demo={isDemoMode} />
+      <DemoButtons next={next} demo={hasDemoAccounts} />
       <LoginForm next={next} />
     </AuthShell>
   );
